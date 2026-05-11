@@ -8,9 +8,12 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
+
     public DbSet<PontoTuristico> PontosTuristicos { get; set; }
+    public DbSet<Estado> Estados { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<PontoTuristico>().ToTable("PontoTuristico");
-    }
+        modelBuilder.Entity<Estado>().ToTable("Estados");    }
 }
